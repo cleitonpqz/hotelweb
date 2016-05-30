@@ -1,0 +1,53 @@
+<h1>Home#index</h1>
+
+
+
+<div class="ui-widget">
+  <label for="hotel">Your hotel: </label>
+  <input id="hotel">
+</div>
+<br>
+<div id="hotel-attributes">
+  Name: <div id="name"></div><br>
+  Address: <div id="address"></div><br>
+  Accommodation Type: <div id="accommodation_type"></div><br>
+  Star Rating: <div id="star_rating"></div>
+</div>
+<script>
+  $(function() {
+    $("#hotel-attributes").hide();
+    var options = {
+      url: function(q) {
+        return "/hotels/search";
+      },
+      getValue: function(element) {
+        return element.name;
+      },
+      ajaxSettings: {
+        dataType: "json",
+        method: "GET",
+        data: {
+          dataType: "json"
+        }
+      },
+      preparePostData: function(data) {
+        data.q = $("#hotel").val();
+        return data;
+      },
+      requestDelay: 400,
+      list: {
+        onClickEvent: function() {
+          var hotel = $("#hotel").getSelectedItemData();
+
+          $("#name").html(hotel.name);
+          $("#address").html(hotel.address);
+          $("#accommodation_type").html(hotel.accommodation_type);
+          $("#star_rating").html(hotel.star_rating);
+
+          $("#hotel-attributes").show();
+        }
+      }
+    };
+    $("#hotel").easyAutocomplete(options);
+  });
+  </script>

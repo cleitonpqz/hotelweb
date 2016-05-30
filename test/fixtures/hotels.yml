@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  address: 
+  star_rating: 
+  accommodation_type: 
+
+two:
+  name: 
+  address: 
+  star_rating: 
+  accommodation_type: 

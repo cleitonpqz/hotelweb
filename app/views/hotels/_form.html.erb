@@ -1,0 +1,24 @@
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div><br>
+  <% end %>
+<%= form_for [@hotel] do |f| %>
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+    <br>
+
+    <%= f.label :accommodation_type %><br>
+    <%= f.select :accommodation_type, ['Hotel', 'Hostel', 'Motel', 'Cottage', 'Chalet'] %>
+    <br>
+
+    <%= f.label :star_rating %><br>
+    <%= f.select :star_rating, 1..5 %>
+    <br>
+
+    <%= f.submit %>
+  </div>
+<% end %>
